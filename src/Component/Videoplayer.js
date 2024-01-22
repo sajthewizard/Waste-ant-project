@@ -1,8 +1,8 @@
 import React, { createRef, useState } from "react";
 import ReactPlayer from "react-player";
-import { LightBulbIcon } from '@heroicons/react/24/solid';
+import { LightBulbIcon , CameraIcon, VideoCameraIcon} from '@heroicons/react/24/solid';
 import {createFileName, useScreenshot} from 'use-react-screenshot';
-// import jig from './VID_20211027_204531.mp4'
+import jig from './VID_20211027_204531.mp4'
 
 
 
@@ -98,21 +98,21 @@ const ref =createRef(null)
       </div>
      
         <form className='form-group form ' onSubmit={handleUrlSubmit}>
-         <input type="text" className="form-control" placeholder="Enter URL" required onChange={handleUrlChange} />
+         <input type="text" className="form-control" placeholder="Enter a Youtube URL to see the URL in title / any other URL to check the bulb go red" required onChange={handleUrlChange} />
          <button  type="submit" className="btn btn-success btn-md mx-2" > Watch</button>
         </form>
        <div  ref={ref} className="youtube-box">
         
-       <ReactPlayer  url={videoUrl} controls/>
-       {/* <ReactPlayer  url={jig} controls/> */}
+       {/* <ReactPlayer  url={videoUrl} controls/> */}
+       <ReactPlayer  url={jig} controls/>
 
        
        <div>
          <div className="record">
           
-          <button onClick={handlePopUp}>screenshot </button>
-          <button id="btn">Start </button>
-          <button id="stopbtn">Stop </button>
+      <CameraIcon onClick={handlePopUp}></CameraIcon>
+          <VideoCameraIcon></VideoCameraIcon>
+         
         
          </div>
         <div>

@@ -1,0 +1,21 @@
+.header {
+    height: 80px;
+    background-color: rgb(200, 240, 92);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    align-items: center;
+    
+}
+nav.header  a {
+
+    text-decoration: none;
+    color: white;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-left: 30px;
+    
+}
+nav.header a:hover{
+    color: black;
+}

@@ -1,4 +1,4 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { LightBulbIcon , CameraIcon, VideoCameraIcon} from '@heroicons/react/24/solid';
 import {createFileName, useScreenshot} from 'use-react-screenshot';
@@ -8,10 +8,22 @@ import jig from './VID_20211027_204531.mp4'
 
 
 export const Videoplayer =()=>{
- 
 
+  // If I get an API I will get the data like URL, Title from the Api. So the code will be retracting from the API. so it will go like this 
+  // Const [videoInfo, setVideoInfo]=useState('')
+
+  // useEffect(()=>{
+  //   fetch('API')
+  //   .then(res=>res.json())
+  //   .then(data=>setVideoInfo(data))
+  // },[])
+  //  I will map through the videoInfo and take the infos required
+
+
+  //  taking scrrenshot 
+ 
 const ref =createRef(null)
-//  taking scrrenshot
+
   const [image,takeScreenShot]=useScreenshot(
     {
       type:'image/jpeg',

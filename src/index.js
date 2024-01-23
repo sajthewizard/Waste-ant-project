@@ -5,10 +5,42 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Header from './Component/Header/Header';
+import Home from './Component/Layout/Home';
+import Firstpage from './Component/Firstpage/Firstpage';
+import Videoplayer from './Component/Videoplayer';
+import Dashboard from './Component/Dashboard/Dashboard';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home></Home>,
+    children:[
+      {
+        path:'/',
+        element:<Firstpage></Firstpage>
+      },
+      {
+        path:'portal',
+        element:<Videoplayer></Videoplayer>
+      }
+      ,
+      {
+        path:'dashboard',
+        element:<Dashboard></Dashboard>
+      },
+    ]
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

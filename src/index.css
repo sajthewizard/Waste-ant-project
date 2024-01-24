@@ -32,6 +32,9 @@ body {
   margin-bottom: 4px;
   
 }
+.wrapper .view-header .clock{
+  height: 25px;
+}
 .wrapper .record{
   width: 100%;
   display: flex;

@@ -2,7 +2,8 @@ import React, { createRef, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { LightBulbIcon , CameraIcon, VideoCameraIcon} from '@heroicons/react/24/solid';
 import {createFileName, useScreenshot} from 'use-react-screenshot';
-import jig from './VID_20211027_204531.mp4'
+import jig from './VID_20211027_204531.mp4';
+
 
 
 
@@ -78,6 +79,44 @@ const ref =createRef(null)
   handleScreenshot();
   setPopup(false);
  }
+ const [view,setView]=useState(false)
+
+
+ const handleview=()=>{
+  setView(true);
+  setSec('');
+  setTime('')
+ }
+
+
+ const [sec,setSec]=useState('')
+
+ const [time,setTime]=useState("")
+
+ 
+
+  
+ 
+ const record5sec=()=>{
+  setSec('5sec');
+  setTime(new Date())
+  setView(false)
+  }
+
+ const record10sec=()=>{
+  setSec('10sec')
+  setTime(new Date())
+  setView(false)
+ }
+
+ const record15sec=()=>{
+  setSec('15sec')
+  setTime(new Date())
+  setView(false)
+ }
+ 
+
+ 
   
 
   
@@ -103,6 +142,30 @@ const ref =createRef(null)
 
       </div>
        :""}
+         {view?
+      <div className="popup">
+
+       <div>
+        
+        <h4> Please set the duration</h4>
+        <div className="view-header text-center">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+           <button onClick={()=>record5sec()} type="button" class="btn btn-outline-primary">5 sec</button>
+          <button  onClick={record10sec} type="button" class="btn btn-outline-primary">10 sec</button>
+           <button  onClick={record15sec} type="button" class="btn btn-outline-primary">15 sec</button>
+</div>
+     
+        
+        </div>
+       
+       
+      
+        </div>
+        
+
+      </div>
+      
+      :""}
 
       <div className="rong">
         <h3>Title:{video}</h3>
@@ -123,15 +186,17 @@ const ref =createRef(null)
          <div className="record">
           
       <CameraIcon onClick={handlePopUp}></CameraIcon>
-          <VideoCameraIcon></VideoCameraIcon>
+          <VideoCameraIcon onClick={handleview}></VideoCameraIcon>
          
         
          </div>
-        <div>
-
-        </div>
+        
        </div>
-       <div></div>
+       <div>
+        
+       </div>
+       
+       
 
        </div>
        </div>

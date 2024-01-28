@@ -3,7 +3,7 @@ import React from 'react';
 const Firstpage = () => {
     return (
         <div>
-            design coming
+            <h1>Design Loading.....</h1>
             
         </div>
     );

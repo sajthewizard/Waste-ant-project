@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <nav  className='header'> 
-     <h4>Waste Ant Sample</h4>
+     <h4>WasteAnt Sample</h4>
      <div>
         <Link to="/">Home</Link>
      <Link to="/portal"> Portal</Link>
-     <Link to="/dashboard"> DashBoard</Link>
+     <Link to="/dashboard"> Dashboard</Link>
      </div> 
             
         </nav>

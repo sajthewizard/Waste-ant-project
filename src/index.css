@@ -35,6 +35,10 @@ body {
 .wrapper .view-header .clock{
   height: 25px;
 }
+.chobi:hover{
+  cursor: pointer;
+  color: chartreuse;
+}
 .wrapper .record{
   width: 100%;
   display: flex;

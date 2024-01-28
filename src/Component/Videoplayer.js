@@ -19,6 +19,7 @@ export const Videoplayer =()=>{
 
 
   //  taking scrrenshot 
+  const [time,setTime]=useState("")
  
 const ref =createRef(null)
 
@@ -29,10 +30,11 @@ const ref =createRef(null)
     }
   )
   const handleScreenshot=()=>{
-    takeScreenShot(ref.current).then(download)
+    takeScreenShot(ref.current).then(download);
+    setTime(new Date().toLocaleTimeString())
 
   }
-  const download=(image,{name='img',extension='jpg'}={})=>{
+  const download=(image,{name=`${time}`,extension='jpg'}={})=>{
     const a=document.createElement('a')
     a.href=image
     a.download=createFileName(extension,name)
@@ -86,26 +88,26 @@ const ref =createRef(null)
  const handleview=()=>{
   setView(true);
   setTime(new Date().toLocaleTimeString())
-  const data={sec,time};
-  fetch('http://localhost:5000/portal',{
-    method:'POST',
-    headers:{
-      'content-type':'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(res=>res.json())
-  .then(data=>{
-    console.log('inside here',data)
-  }
-  )
+  // const data={sec,time};
+  // fetch('http://localhost:5000/portal',{
+  //   method:'POST',
+  //   headers:{
+  //     'content-type':'application/json'
+  //   },
+  //   body: JSON.stringify(data)
+  // })
+  // .then(res=>res.json())
+  // .then(data=>{
+  //   console.log('inside here',data)
+  // }
+  // )
 
  }
 
 
  const [sec,setSec]=useState('')
 
- const [time,setTime]=useState("")
+ 
 
  const record5sec=()=>{
   setSec('5sec');
@@ -178,7 +180,7 @@ const ref =createRef(null)
       :""}
 
       <div className="rong">
-        <h3>Title:{video}</h3>
+        <h3>Title: {video?video: "Local video"}</h3>
         <LightBulbIcon className={urlError}></LightBulbIcon>
       </div>
      
@@ -195,8 +197,9 @@ const ref =createRef(null)
        <div>
          <div className="record">
           
-      <CameraIcon onClick={handlePopUp}></CameraIcon>
-          <VideoCameraIcon onClick={handleview}></VideoCameraIcon>
+      <CameraIcon className="chobi" onClick={handlePopUp}></CameraIcon>
+      
+          <VideoCameraIcon className="chobi" onClick={handleview}></VideoCameraIcon>
          
         
          </div>

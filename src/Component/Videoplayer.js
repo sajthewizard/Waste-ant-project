@@ -5,9 +5,6 @@ import {createFileName, useScreenshot} from 'use-react-screenshot';
 import jig from './VID_20211027_204531.mp4';
 
 
-
-
-
 export const Videoplayer =()=>{
 
   // If I get an API I will get the data like URL, Title from the Api. So the code will be retracting from the API. so it will go like this 
@@ -79,13 +76,30 @@ const ref =createRef(null)
   handleScreenshot();
   setPopup(false);
  }
+
+
+//  Taking data for video recording
+
  const [view,setView]=useState(false)
 
 
  const handleview=()=>{
   setView(true);
-  setSec('');
-  setTime('')
+  setTime(new Date().toLocaleTimeString())
+  const data={sec,time};
+  fetch('http://localhost:5000/portal',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log('inside here',data)
+  }
+  )
+
  }
 
 
@@ -93,28 +107,24 @@ const ref =createRef(null)
 
  const [time,setTime]=useState("")
 
- 
-
-  
- 
  const record5sec=()=>{
   setSec('5sec');
-  setTime(new Date())
+  
   setView(false)
   }
 
  const record10sec=()=>{
   setSec('10sec')
-  setTime(new Date())
+  
   setView(false)
  }
 
  const record15sec=()=>{
   setSec('15sec')
-  setTime(new Date())
+  
   setView(false)
  }
- 
+
 
  
   
@@ -149,10 +159,10 @@ const ref =createRef(null)
         
         <h4> Please set the duration</h4>
         <div className="view-header text-center">
-        <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-           <button onClick={()=>record5sec()} type="button" class="btn btn-outline-primary">5 sec</button>
-          <button  onClick={record10sec} type="button" class="btn btn-outline-primary">10 sec</button>
-           <button  onClick={record15sec} type="button" class="btn btn-outline-primary">15 sec</button>
+        <div className="btn-group btn-group-sm" role="group" aria-label="Small button group">
+           <button onClick={()=>record5sec()} type="button" className="btn btn-outline-primary">5 sec</button>
+          <button  onClick={record10sec} type="button" className="btn btn-outline-primary">10 sec</button>
+           <button  onClick={record15sec} type="button" className="btn btn-outline-primary">15 sec</button>
 </div>
      
         
@@ -190,16 +200,17 @@ const ref =createRef(null)
          
         
          </div>
+         <div>
+          <p>Duration: {sec}</p>
+          <p>Set time: {time}</p>
+         </div>
         
        </div>
        <div>
-        
-       </div>
+     </div>
        
-       
-
-       </div>
-       </div>
+    </div>
+  </div>
     );
   };
   

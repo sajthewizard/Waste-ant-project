@@ -33,6 +33,11 @@ const router = createBrowserRouter([
         path:'dashboard',
         element:<Dashboard></Dashboard>
       },
+      
+      {
+        path:'*',
+        element:<div className='text-center'><h1>Error Loading page 4444444!!!!! </h1></div>
+      }
     ]
   },
 ]);

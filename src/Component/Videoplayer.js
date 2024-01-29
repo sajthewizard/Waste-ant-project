@@ -81,26 +81,26 @@ const ref =createRef(null)
 
 
 //  Taking data for video recording
-
  const [view,setView]=useState(false)
 
 
  const handleview=()=>{
   setView(true);
   setTime(new Date().toLocaleTimeString())
-  // const data={sec,time};
-  // fetch('http://localhost:5000/portal',{
-  //   method:'POST',
-  //   headers:{
-  //     'content-type':'application/json'
-  //   },
-  //   body: JSON.stringify(data)
-  // })
-  // .then(res=>res.json())
-  // .then(data=>{
-  //   console.log('inside here',data)
-  // }
-  // )
+  const set_time=time;
+  const data={sec,set_time};
+  fetch('http://localhost:5000/portal',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log('inside here',data)
+  }
+  )
 
  }
 
@@ -108,29 +108,19 @@ const ref =createRef(null)
  const [sec,setSec]=useState('')
 
  
-
+// Button for taking the video data
  const record5sec=()=>{
-  setSec('5sec');
-  
+  setSec('5sec'); 
   setView(false)
   }
-
  const record10sec=()=>{
-  setSec('10sec')
-  
+  setSec('10sec')  
   setView(false)
  }
-
  const record15sec=()=>{
-  setSec('15sec')
-  
+  setSec('15sec') 
   setView(false)
  }
-
-
- 
-  
-
   
     return (
             
@@ -138,17 +128,12 @@ const ref =createRef(null)
       <div  className='wrapper'> 
       {popup?
       <div className="popup">
-       <div>
-        
+       <div>       
         <h4> Want to save the image</h4>
         <div className="popup-header mx-4">
         <button onClick={closePopup} className="bg-success"> Yes</button>
-        <button  onClick={()=>setPopup(false)}className="bg-danger"> No</button>
-        
-        </div>
-       
-       
-      
+        <button  onClick={()=>setPopup(false)}className="bg-danger"> No</button>        
+        </div>      
         </div>
         
 
@@ -198,8 +183,7 @@ const ref =createRef(null)
          <div className="record">
           
       <CameraIcon className="chobi" onClick={handlePopUp}></CameraIcon>
-      
-          <VideoCameraIcon className="chobi" onClick={handleview}></VideoCameraIcon>
+                <VideoCameraIcon className="chobi" onClick={handleview}></VideoCameraIcon>
          
         
          </div>

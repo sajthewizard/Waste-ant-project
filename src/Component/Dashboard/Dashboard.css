@@ -1,0 +1,9 @@
+.datas{
+    border: solid 2px black;
+    margin-top: 2px;
+    width: 200px;
+    display: grid; 
+    text-align: center;
+margin-left: 40%;
+border-radius: 3px;
+}

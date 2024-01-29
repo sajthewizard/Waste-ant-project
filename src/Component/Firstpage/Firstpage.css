@@ -1,0 +1,18 @@
+.firstpage-wrapper{
+    display: grid;
+    justify-content: center;
+    align-items:center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+background-color: rgb(183, 217, 33);
+margin-left: 25%;
+border: solid 3px bisque;
+border-radius: 10px;
+margin-top: 25px;
+    
+    
+}
+.firstpage-wrapper img{
+    width: 100%;
+}

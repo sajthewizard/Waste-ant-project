@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import VideoPlayer from './Component/Videoplayer';
 import Header from './Component/Header/Header';
+
 function App() {
   return (
     <div className="App">
@@ -8,6 +9,7 @@ function App() {
       <Header></Header>
       
       <VideoPlayer></VideoPlayer>
+      
     </div>
   );
 }
